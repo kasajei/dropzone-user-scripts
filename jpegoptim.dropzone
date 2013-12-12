@@ -1,0 +1,18 @@
+#!/usr/bin/ruby
+#
+# Dropzone Destination Info
+# Name: jpegoptim
+# Description: Compress PNG Image file with pngquant. If you don't install pngquant, please install `brew install pngquant`
+# Events: Dragged
+# Handles: NSFilenamesPboardType
+# Creator: @kasajei
+# URL: http://blog.kasajei.com
+# IconURL: http://kasajei.blog.s3.amazonaws.com/dropzone/jpegoptim.png
+
+def dragged
+   file_path = $items[0]
+   $dz.begin("Compressing #{file_path}")
+   system "/usr/local/bin/jpegoptim --max=50 \"#{file_path}\"  >& /dev/null"
+   $dz.finish("Compressed #{file_path}")
+   $dz.url(false)
+end
