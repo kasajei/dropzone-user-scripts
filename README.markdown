@@ -19,3 +19,9 @@ We've been known to give free licenses to developers who write cool destinations
 # Description for each .dropzone
 ## pngquant.dropzone
 If you have not installed pngquant, `brew install pngquant`
+
+## jpenoptim.dropzone
+If you have not installed jpegoptim, `brew install jpegoptim`
+
+## imageoptim.dropzone
+If you have not installed ImageOptim.app, please install it from http://imageoptim.com/
