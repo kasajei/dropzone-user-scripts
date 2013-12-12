@@ -1,0 +1,18 @@
+#!/usr/bin/ruby
+#
+# Dropzone Destination Info
+# Name: imageoptim
+# Description: Compress Image file with ImageOptim. If you do not have ImageOptim.app, please install it from http://imageoptim.com/
+# Events: Dragged
+# Handles: NSFilenamesPboardType
+# Creator: @kasajei
+# URL: http://blog.kasajei.com
+# IconURL: http://kasajei.blog.s3.amazonaws.com/dropzone/ImageOptim.png
+
+def dragged
+   file_path = $items[0]
+   $dz.begin("Compressing #{file_path}")
+   system "/Applications/ImageOptim.app/Contents/MacOS/ImageOptim &>/dev/null \"#{file_path}\""
+   $dz.finish("Compressed #{file_path}")
+   $dz.url(false)
+end
