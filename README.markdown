@@ -15,3 +15,7 @@ We can't guarantee to list your script on the Aptonic extend page. Scripts need 
   
 Ideally you should email us and let us know what you're doing and we can help test your action etc.  
 We've been known to give free licenses to developers who write cool destinations...
+
+# Description for each .dropzone
+## pngquant.dropzone
+If you have not installed pngquant, `brew install pngquant`
