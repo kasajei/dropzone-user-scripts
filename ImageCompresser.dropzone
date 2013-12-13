@@ -1,0 +1,27 @@
+#!/usr/bin/ruby
+#
+# Dropzone Destination Info
+# Name: ImageCompresser
+# Description: ImageCompresser for PNG,JPEG. Requred ImageOptim, jpegoptim, pngquant.
+# Events: Dragged
+# Handles: NSFilenamesPboardType
+# Creator: @kasajei
+# URL: http://blog.kasajei.com
+# IconURL: http://kasajei.blog.s3.amazonaws.com/dropzone/ImageCompresser.png
+
+def dragged
+   file_path = $items[0]
+   extname = File.extname(file_path)
+   extname = extname.downcase
+   $dz.begin("#{extname}")
+   $dz.begin("Compressing #{file_path}")
+   if extname == ".png"
+      system "/usr/local/bin/pngquant --speed 1 --force --ext .png 256 -- \"#{file_path}\""
+   elsif extname == ".jpeg" or extname == ".jpg"
+     system "/usr/local/bin/jpegoptim --strip-all --max=50 \"#{file_path}\"  >& /dev/null"
+   end
+   $dz.begin("ImageOptim #{file_path}")
+   system "/Applications/ImageOptim.app/Contents/MacOS/ImageOptim &>/dev/null \"#{file_path}\""
+   $dz.finish("Compressed #{file_path}")
+   $dz.url(false)
+end
