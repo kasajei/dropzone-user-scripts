@@ -25,3 +25,6 @@ If you have not installed jpegoptim, `brew install jpegoptim`
 
 ## imageoptim.dropzone
 If you have not installed ImageOptim.app, please install it from http://imageoptim.com/
+
+## ImageCompresser
+Requre pngquant, jpegoptim, ImageOptim.app
